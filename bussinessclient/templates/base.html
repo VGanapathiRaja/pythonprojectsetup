@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{%static 'assets/car.jpg'%} " type="image/x-icon">
+    <title> {%block title%} {%endblock%} </title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <div>
+                <a href="#"><img src="{%static 'assets/car.jpg'%}" alt="car"></a>
+            </div>
+            <div class="mobileicon">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+
+        <div class="menus">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li class="supermenu"><a href="#">Serivce</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'service' %}">Ser 1</a></li>
+                        <li><a href="{% url 'service' %}">Ser 2</a></li>
+                        <li><a href="{% url 'service' %}">Ser 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    {% block content%}
+    {% endblock %}
+
+
+
+    <!-- <script src="{%static 'js/script.js'%}"></script> -->
+</body>
+
+</html>
