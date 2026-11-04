@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{%block title %} {{Studets}} {%endblock%}
+
+{%block content%}
+<section style="padding: 75px 60px; display: flex; justify-content: center; align-items: center; ">
+
+    <div>
+        <h1>hello studets page</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="inputs">
+                <label for="studenetname">s Name</label>
+                <input type="text" name="sname" placeholder="Enter your full Name" required>
+            </div>
+
+            <div class="inputs">
+                <label for="studenetname">s Email</label>
+                <input type="email" name="semail" placeholder="Enter your full email" required>
+            </div>
+
+            <div class="inputs">
+                <label for="studenetname">s Mobile</label>
+                <input type="tel" name="smobile" placeholder="Enter your full Mobile" required>
+            </div>
+
+            <div class="inputs">
+                <label for="studenetname">s Age</label>
+                <input type="number" name="sage" placeholder="Enter your full Age" required>
+            </div>
+
+            <div class="inputs">
+                <button type="submit">Add students Info</button>
+            </div>
+        </form>
+    </div>
+</section>
+{%endblock%}
