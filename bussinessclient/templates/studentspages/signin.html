@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{%block title %} {{ Students }} {%endblock%}
+
+{%block content%}
+<section style="padding: 75px 60px; display: flex; justify-content: center; align-items: center;">
+    <div>
+        <h1>login pages </h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="inputs">
+                <label for="uname">students User Name</label>
+                <div>
+                    <input type="text" name="susername" placeholder="ENter your User name" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="uname">students User EMail</label>
+                <div>
+                    <input type="email" name="semail" placeholder="ENter your User Email" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="uname">students User password</label>
+                <div>
+                    <input type="password" name="spass" placeholder="ENter your User Password" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="uname">students User confirm password</label>
+                <div>
+                    <input type="password" name="scpass" placeholder="ENter your User re-type Password" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <button type="submit">Sign In</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h2>Signi User informations </h2>
+        {% for signiin in signin %}
+        <p> {{signiin.susername}} </p>
+        <p> {{signiin.semail}} </p>
+        {% endfor%}
+    </div>
+</section>
+{%endblock%}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{%block title %} {{ Students }} {%endblock%}
+
+{%block content%}
+
+<h1>Login infos</h1>
+<div>
+    <h2>Signi User informations </h2>
+    {% for signiin in info %}
+    <p> {{signiin.susername}} </p>
+    <p> {{signiin.semail}} </p>
+    {% endfor%}
+</div>
+{%endblock%}
