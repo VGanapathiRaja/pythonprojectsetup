@@ -19,3 +19,14 @@ class Signin(models.Model):
 
       def __str__(self):
            return self.name
+
+
+class Empinfo(models.Model):
+     empusername = models.TextField(max_length=100)
+     empuserfull = models.TextField(max_length=100)
+     empemail = models.EmailField(max_length=100)
+     empmobile = models.BigIntegerField(max_length=15)
+     empids = models.TextField(max_length=50)
+
+     def __str__(self):
+          return self.name

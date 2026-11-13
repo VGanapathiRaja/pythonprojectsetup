@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{%block title %} {{ Students }} {%endblock%}
+
+{%block content%}
+
+
+
+<section style="padding: 75px 60px; display: flex; justify-content: space-around; align-items: center;">
+    <div>
+        <p>Updating Form datas Students </p>
+        <div style="width: 600px; background-color: bisque; padding: 10px; margin: 10px;">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inputs">
+                    <label for="uname">students User Name</label>
+                    <div>
+                        <input type="text" name="susername" value="{{updateData.susername}}"
+                            placeholder="ENter your User name" required>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <label for="uname">students User EMail</label>
+                    <div>
+                        <input type="email" name="semail" value="{{updateData.semail}}"
+                            placeholder="ENter your User Email" required>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <label for="uname">students User password</label>
+                    <div>
+                        <input type="password" name="spass" value="{{updateData.spass}}"
+                            placeholder="ENter your User Password" required>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <label for="uname">students User confirm password</label>
+                    <div>
+                        <input type="password" name="scpass" value="{{updateData.scpass}}"
+                            placeholder="ENter your User re-type Password" required>
+                    </div>
+                </div>
+                <div class="inputs">
+                    <button type="submit">save</button>
+                </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

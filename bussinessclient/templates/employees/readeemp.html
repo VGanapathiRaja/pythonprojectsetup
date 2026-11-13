@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{%block title%} {{Homepage}} {%endblock%}
+
+{%block content%}
+<style>
+    section {
+        padding: 75px 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .empsection {
+        padding: 10px 15px;
+        margin: 10px;
+        background-color: bisque;
+        /* width: 800px; */
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table,
+    tr,
+    td {
+        border: 2px solid black;
+        padding: 10px;
+    }
+</style>
+<section>
+    <div class="empsection">
+        <h2>Employee Info's Reading</h2>
+
+        <table>
+            <thead>
+                <td>Eid</td>
+                <td>Eusername</td>
+                <td>EFullName</td>
+                <td>Eemial</td>
+                <td>Emobile</td>
+                <td>Eid's</td>
+                <td colspan="2" style="text-align: center;">Action</td>
+            </thead>
+            <tbody>
+                {% for E in empdetails %}
+                <tr>
+                    <td>{{E.id}}</td>
+                    <td>{{E.empusername}}</td>
+                    <td>{{E.empuserfull}}</td>
+                    <td>{{E.empemail}}</td>
+                    <td>{{E.empmobile}}</td>
+                    <td>{{E.empids}}</td>
+                    <td><a href="{% url 'empupdatedata' E.id %}">Edit</a></td>
+                    <td>
+                        <form method="POST" action="{%url 'empdeletedata' E.id %}">
+                            {% csrf_token%}
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+    </div>
+</section>
+{%endblock%}

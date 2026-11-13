@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{%block title%} {{Homepage}} {%endblock%}
+
+{%block content%}
+<style>
+    section {
+        padding: 75px 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inputs {
+        padding: 10px 10px;
+        margin: 5px 0;
+    }
+
+    form {
+        background-color: bisque;
+        padding: 10px;
+        margin: 15px 10px;
+        width: 400px;
+    }
+
+    .inputs input {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .inputs button {
+        padding: 10px;
+    }
+</style>
+<section>
+    <div class="empsection">
+        <h2>Employee Info's Updating a Data </h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="inputs">
+                <label for="euname">Emp user Name</label>
+                <div>
+                    <input type="text" name="empusername" value="{{Empupdate.empusername}}"
+                        placeholder="Enter your user name" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="euname">Emp Full Name</label>
+                <div>
+                    <input type="text" name="empuserfull" value="{{Empupdate.empuserfull}}"
+                        placeholder="Enter your full name" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="euname">Emp Email</label>
+                <div>
+                    <input type="email" name="empemail" value="{{Empupdate.empemail}}" placeholder="Enter your Email"
+                        required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="euname">Emp Mobile number</label>
+                <div>
+                    <input type="tel" name="empmobile" value="{{Empupdate.empmobile}}"
+                        placeholder="Enter your mobile number" required>
+                </div>
+            </div>
+            <div class="inputs">
+                <label for="euname">Emp Id number</label>
+                <div>
+                    <input type="number" name="empids" value="{{Empupdate.empids}}" placeholder="Enter your is number"
+                        required>
+                </div>
+            </div>
+            <div class="inputs">
+                <button type="submit">Update Employee</button>
+            </div>
+        </form>
+    </div>
+</section>
+{%endblock%}

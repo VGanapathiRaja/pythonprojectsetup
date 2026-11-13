@@ -2,7 +2,7 @@
 {%block title %} {{Studets}} {%endblock%}
 
 {%block content%}
-<section style="padding: 75px 60px; display: flex; justify-content: center; align-items: center; ">
+<section style="padding: 75px 60px; display: flex; justify-content: space-around; align-items: center; ">
 
     <div>
         <h1>hello studets page</h1>
@@ -33,5 +33,54 @@
             </div>
         </form>
     </div>
+
+    <div>
+        <style>
+            table,
+            thead,
+            tbody,
+            tr,
+            td {
+                border-collapse: collapse;
+                border: 1px solid red;
+                padding: 10px;
+            }
+        </style>
+        <h2>informations</h2>
+        <table>
+            <thead>
+                <td>s.id </td>
+                <td>sname</td>
+                <td>Semail </td>
+                <td colspan="2" style="text-align: center;">status</td>
+            </thead>
+            <tbody>
+
+                {% for x in Datas %}
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td>{{x.sname}}</td>
+                    <td>{{x.semail}}</td>
+                    <td><a href="{% url 'studnetsupdate' x.id %}">edit</a></td>
+                    <td>
+                        <form method="post" action="{%url 'studnetsdeletedata' x.id%}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {%empty%}
+                <tr>
+                    <td colspan="5">data not found</td>
+                </tr>
+                {% endfor %}
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+
 </section>
 {%endblock%}

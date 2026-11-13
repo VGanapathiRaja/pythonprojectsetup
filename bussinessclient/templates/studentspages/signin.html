@@ -2,8 +2,10 @@
 {%block title %} {{ Students }} {%endblock%}
 
 {%block content%}
-<section style="padding: 75px 60px; display: flex; justify-content: center; align-items: center;">
-    <div>
+
+
+<section style="padding: 75px 60px; display: flex; justify-content: space-around; align-items: center;">
+    <div style="width: 600px; background-color: bisque; padding: 10px; margin: 10px;">
         <h1>login pages </h1>
         <form method="POST">
             {% csrf_token %}
@@ -37,12 +39,60 @@
         </form>
     </div>
 
-    <div>
+    <div style="width: 600px; background-color: bisque; padding: 10px; margin: 10px;">
+        <style>
+            table,
+            th,
+            tr,
+            td {
+                border-collapse: collapse;
+            }
+
+            table,
+            tr,
+            td,
+            th {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: center;
+            }
+
+            td button {
+                padding: 5px;
+            }
+        </style>
         <h2>Signi User informations </h2>
-        {% for signiin in signin %}
-        <p> {{signiin.susername}} </p>
-        <p> {{signiin.semail}} </p>
-        {% endfor%}
+
+
+        <table>
+            <thead>
+                <td>S.id</td>
+                <td>S.Name</td>
+                <td>S.Email</td>
+                <td colspan="2">Action</td>
+            </thead>
+            <tbody>
+                {% for signiin in signin %}
+                <tr>
+                    <td>{{signiin.id}}</td>
+                    <td>{{signiin.susername}}</td>
+                    <td>{{signiin.semail}} </td>
+
+                    <td><a href="{% url 'updatedata' signiin.id %}">edit</a></td>
+
+                    <td>
+                        <form method="POST" action="{%url 'deletedata' signiin.id%}">
+                            {% csrf_token %}
+                            <button>delete data</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+
+
+
     </div>
 </section>
 {%endblock%}
